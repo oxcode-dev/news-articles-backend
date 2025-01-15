@@ -23,7 +23,7 @@ class ArticleFactory extends Factory
             'content' => fake()->sentence,
             'url' => fake()->url(),
             'image' => fake()->imageUrl(),
-            'published_at' => now(),
+            'source' => fake()->name(),
         ];
     }
 }

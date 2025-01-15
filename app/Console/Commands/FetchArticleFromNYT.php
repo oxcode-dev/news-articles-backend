@@ -50,7 +50,6 @@ class FetchArticleFromNYT extends Command
                         'author' => $article['byline']['original']  ?? '',
                         'description' => $article['snippet']  ?? '',
                         'url' => $article['web_url']  ?? '',
-                        'published_at' => $article['pub_date']  ?? '',
                         'content' => $article['lead_paragraph']  ?? '',
                         'image' => 'https://static01.nyt.com/' . $article['multimedia'][0]['image']  ?? '',
                         'source' => $article['source'] ?? '',

@@ -49,7 +49,6 @@ class FetchNewsFromApi extends Command
                         'author' => $article['author']  ?? '',
                         'description' => $article['description']  ?? '',
                         'url' => $article['url']  ?? '',
-                        'published_at' => $article['publishedAt']  ?? '',
                         'content' => $article['content']  ?? '',
                         'image' => $article['urlToImage']  ?? '',
                         'source' => $article['source']['name'] ?? '',

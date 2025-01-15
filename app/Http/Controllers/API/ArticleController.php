@@ -11,7 +11,7 @@ class ArticleController extends Controller
     public function index(Request $request) 
     {
         // return $request->all();
-        $articles = Article::search($request->search);
+        $articles = Article::search($request->search)->whereNot('title', '[Removed]');
             
         if ($request->has('category')) {
             $articles->where('category', '>', $request->category);
@@ -26,7 +26,7 @@ class ArticleController extends Controller
         }
 
         return response()->json([
-            'data' => $articles->paginate(5)->withQueryString(),
+            'data' => $articles->paginate(10)->withQueryString(),
             'status' => 'success',
         ]);
     }

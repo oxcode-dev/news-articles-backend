@@ -49,10 +49,9 @@ class FetchArticleFromWorldNews extends Command
                         'author' => $article['author']  ?? '',
                         'description' => $article['text']  ?? '',
                         'url' => $article['url']  ?? '',
-                        'published_at' => $article['publish_date']  ?? '',
                         'content' => '',
                         'image' => $article['image']  ?? '',
-                        'source' => '',
+                        'source' => 'World News-',
                     ]
                 );
             }
