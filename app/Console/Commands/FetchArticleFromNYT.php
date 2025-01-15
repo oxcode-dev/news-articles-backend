@@ -37,7 +37,7 @@ class FetchArticleFromNYT extends Command
 
         // Fetch data from the API
         $response = Http::get($url);
-        return $response->json();
+        // return $response->json();
      
         if ($response->successful()) {
             $articles = $response->json()['response']['docs'] ?? [];

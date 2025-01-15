@@ -31,12 +31,11 @@ class FetchArticleFromWorldNews extends Command
         $apiUrl = env('WORLDNEWS_API_URL');
 
         // The news API endpoint (using NewsAPI as an example)
-        // $url = "https://api.worldnewsapi.com/top-news?source-country=us&language=en&api-key=6548f1efd0114702a18d3e3c25506509";
         $url = $apiUrl . "/search-news?source-country=us&language=en&number=50&api-key=" . $apiKey;
 
         // Fetch data from the API
         $response = Http::get($url);
-        return $response->json();
+        // return $response->json();
      
         if ($response->successful()) {
             $articles = $response->json()['news'];
