@@ -50,7 +50,7 @@ class FetchArticleFromWorldNews extends Command
                         'url' => $article['url']  ?? '',
                         'content' => '',
                         'image' => $article['image']  ?? '',
-                        'source' => 'World News-',
+                        'source' => 'World News',
                     ]
                 );
             }
