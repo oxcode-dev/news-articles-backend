@@ -13,10 +13,6 @@ class ArticleController extends Controller
         // return $request->all();
         $articles = Article::search($request->search)->whereNot('title', '[Removed]');
             
-        if ($request->has('category')) {
-            $articles->where('category', '>', $request->category);
-        }
-
         if ($request->has('source')) {
             $articles->where('source', $request->source);
         }
@@ -37,6 +33,29 @@ class ArticleController extends Controller
         
         return response()->json([
             'data' => $article,
+        ]);
+    }
+
+    public function preferredArticles(Request $request) 
+    {
+        // return $request->all();
+        $articles = Article::search($request->search)->whereNot('title', '[Removed]');
+            
+        if ($request->has('category')) {
+            $articles->where('category', '>', $request->category);
+        }
+
+        if ($request->has('source')) {
+            $articles->where('source', $request->source);
+        }
+
+        if ($request->has('date')) {
+            $articles->where('created_at','>=', $request->date);
+        }
+
+        return response()->json([
+            'data' => $articles->paginate(10)->withQueryString(),
+            'status' => 'success',
         ]);
     }
 }
