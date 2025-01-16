@@ -13,7 +13,7 @@ Route::get('/articles/preferred', [ArticleController::class, 'preferredArticles'
 Route::get('/articles/sources', [ArticleController::class, 'articlesSources'])->name('api.articles_sources');
 Route::get('/articles/{id}', [ArticleController::class, 'show'])->name('api.article_show');
 
-Route::get('/settings', [ APIAuthController::class, 'updateProfile' ])->name('api.update_user');
+Route::post('/user-settings', [ APIAuthController::class, 'updateProfile' ])->name('api.update_user');
 
 Route::middleware(['auth:sanctum'])->group(function () {
     Route::post('/logout', [ APIAuthController::class, 'logout' ])->name('api.logout');

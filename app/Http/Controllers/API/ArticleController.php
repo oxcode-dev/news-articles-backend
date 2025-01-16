@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use App\Models\Article;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Builder;
 
@@ -39,6 +40,12 @@ class ArticleController extends Controller
     public function preferredArticles(Request $request) 
     {
         // return $request->all();
+        $user = User::first();
+        $sources = $user->sources;
+        $authors = $user->authors;
+
+        return [$user];
+
         $articles = Article::search($request->search)->whereNot('title', '[Removed]');
             
         if ($request->has('category')) {
@@ -67,10 +74,9 @@ class ArticleController extends Controller
 
 
         return response()->json([
-            // 'data' => $articles,
             'data' => [
-                'authors' => $authors,
-                'sources' => $sources,
+                'authors' => array_values($authors),
+                'sources' => array_values($sources),
             ],
             'status' => 'success',
         ]);
