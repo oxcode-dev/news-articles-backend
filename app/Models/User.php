@@ -26,6 +26,8 @@ class User extends Authenticatable
         'email',
         'password',
         'photo',
+        'authors',
+        'sources',
     ];
 
     /**
@@ -48,6 +50,8 @@ class User extends Authenticatable
         return [
             'owner' => 'boolean',
             'email_verified_at' => 'datetime',
+            'authors' => 'array',
+            'sources' => 'array',
         ];
     }
 

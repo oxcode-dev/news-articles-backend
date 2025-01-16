@@ -58,4 +58,21 @@ class ArticleController extends Controller
             'status' => 'success',
         ]);
     }
+
+    public function articlesSources(Request $request) 
+    {
+        $articles = Article::get();
+        $authors = collect($articles)->where('author', '!==', '')->pluck('author')->unique()->all();
+        $sources = collect($articles)->where('source', '!==', '')->pluck('source')->unique()->all();
+
+
+        return response()->json([
+            // 'data' => $articles,
+            'data' => [
+                'authors' => $authors,
+                'sources' => $sources,
+            ],
+            'status' => 'success',
+        ]);
+    }
 }

@@ -9,7 +9,10 @@ Route::post('/login', [ APIAuthController::class, 'login' ])->name('api.login');
 Route::post('/register', [ APIAuthController::class, 'register' ])->name('api.register');
 
 Route::get('/articles', [ArticleController::class, 'index'])->name('api.articles');
+Route::get('/articles/preferred', [ArticleController::class, 'preferredArticles'])->name('api.user_articles');
+Route::get('/articles/sources', [ArticleController::class, 'articlesSources'])->name('api.articles_sources');
 Route::get('/articles/{id}', [ArticleController::class, 'show'])->name('api.article_show');
+
 Route::get('/settings', [ APIAuthController::class, 'updateProfile' ])->name('api.update_user');
 
 Route::middleware(['auth:sanctum'])->group(function () {
