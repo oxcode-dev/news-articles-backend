@@ -42,8 +42,8 @@ class ArticleController extends Controller
 
     public function preferredArticles(Request $request) 
     {
-        // return $request->all();
-        $user = User::first();
+        $user = $request->user('api');
+        // $user = User::first();
         $sources = $user->sources;
         $authors = $user->authors;
 

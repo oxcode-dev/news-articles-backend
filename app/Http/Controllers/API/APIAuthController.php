@@ -84,15 +84,15 @@ class APIAuthController extends Controller
 
     public function updateProfile(Request $request)//: \Illuminate\Http\JsonResponse
     {
-        // $user =  $request->user('api');
-        $user = User::first();
+        $user =  $request->user('api');
+        // $user = User::first();
 
         $data = $request->validate([
             'first_name' => 'sometimes',
             'last_name' => 'sometimes',
             'email' => [
                 'sometimes',
-                // Rule::unique('clients')->ignore($user->id),
+                Rule::unique('clients')->ignore($user->id),
             ],
             'authors' => 'sometimes|array|nullable',
             'sources' => 'sometimes|array|nullable'
