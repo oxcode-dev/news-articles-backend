@@ -78,3 +78,41 @@ php artisan app:fetch-article-from-api
 php artisan app:fetch-article-from-nyt
 php artisan app:fetch-article-from-world-news
 ```
+
+Build the docker container
+
+```sh
+docker-compose exec app bash
+```
+
+Start the Docker containers:
+
+```sh
+docker-compose up -d
+```
+
+Install Laravel Dependencies
+
+```sh
+docker-compose exec app bash
+```
+
+Then, run
+
+```sh
+composer install
+```
+
+Set File Permissions
+
+```sh
+docker-compose exec app bash
+chmod -R 775 storage bootstrap/cache
+```
+
+Run Laravel Migration
+
+```sh
+docker-compose exec app bash
+php artisan migrate
+```
