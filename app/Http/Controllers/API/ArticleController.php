@@ -7,6 +7,8 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Builder;
 
+use function PHPUnit\Framework\isEmpty;
+
 class ArticleController extends Controller
 {
     public function index(Request $request) 
@@ -30,10 +32,11 @@ class ArticleController extends Controller
 
     public function show(Request $request, $id) 
     {
-        $article = Article::whereId($id)->firstOrFail();
+        $article = Article::whereId($id)->first();
         
         return response()->json([
-            'data' => $article,
+            'data' => $article ?? [],
+            'status' => $article->exists() ? 'success' : 'error',
         ]);
     }
 
