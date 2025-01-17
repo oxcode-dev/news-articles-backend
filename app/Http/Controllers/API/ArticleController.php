@@ -44,9 +44,10 @@ class ArticleController extends Controller
         $sources = $user->sources;
         $authors = $user->authors;
 
-        return [$user];
-
-        $articles = Article::search($request->search)->whereNot('title', '[Removed]');
+        $articles = Article::search($request->search)
+            ->whereNot('title', '[Removed]')
+            ->whereIn('source', $sources)
+            ->orWhereIn('author', $authors);
             
         if ($request->has('category')) {
             $articles->where('category', '>', $request->category);
