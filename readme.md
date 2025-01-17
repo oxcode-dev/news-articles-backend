@@ -1,19 +1,6 @@
-# Ping CRM React
-
-A demo application to illustrate how [Inertia.js](https://inertiajs.com/) works with [Laravel](https://laravel.com/) and [React](https://reactjs.org/).
-
-> This is a port of the original [Ping CRM](https://github.com/inertiajs/pingcrm) written in Laravel and Vue.
-
-![](https://raw.githubusercontent.com/liorocks/pingcrm-react/master/screenshot.png)
+# News Articles Test
 
 ## Installation
-
-Clone the repo locally:
-
-```sh
-git clone https://github.com/liorocks/pingcrm-react.git
-cd pingcrm-react
-```
 
 Install PHP dependencies:
 
