@@ -56,21 +56,25 @@ Run artisan server:
 php artisan serve
 ```
 
-You're ready to go! [Visit Ping CRM](http://127.0.0.1:8000/) in your browser, and login with:
-
 - **Username:** johndoe@example.com
 - **Password:** secret
 
-## Running tests
+Configure Crontab for Scheduler
 
-To run the Ping CRM tests, run:
-
-```
-php artisan test
+```sh
+crontab -e
 ```
 
-## Credits
+Then add the following line to call the Laravel scheduler:
 
-- Original work by Jonathan Reinink (@reinink) and contributors
-- Port to Ruby on Rails by Georg Ledermann (@ledermann)
-- Port to React by Lio (@liorocks)
+```sh
+* * * * * cd /path-to-your-project && php artisan schedule:run >> /dev/null 2>&1
+```
+
+You can run the command manually
+
+```sh
+php artisan app:fetch-article-from-api
+php artisan app:fetch-article-from-nyt
+php artisan app:fetch-article-from-world-news
+```
