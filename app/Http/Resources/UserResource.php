@@ -20,6 +20,7 @@ class UserResource extends JsonResource
             'last_name' => $this->last_name,
             'name' => $this->name,
             'email' => $this->email,
+            
             'deleted_at' => $this->deleted_at,
             'sources' => $this->sources ?? [],
             'authors' => $this->authors ?? [],
