@@ -71,4 +71,3 @@ Route::put('users/{user}/restore', [UsersController::class, 'restore'])
 Route::get('/img/{path}', [ImagesController::class, 'show'])
     ->where('path', '.*')
     ->name('image');
-
