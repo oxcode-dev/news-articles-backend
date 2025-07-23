@@ -4,14 +4,15 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use App\Models\Article;
 use App\Models\User;
-use Illuminate\Http\Request;
+use function PHPUnit\Framework\isEmpty;
 use Illuminate\Database\Eloquent\Builder;
 
-use function PHPUnit\Framework\isEmpty;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
 
 class ArticleController extends Controller
 {
-    public function index(Request $request) 
+    public function index(Request $request) : JsonResponse
     {
         // return $request->all();
         $articles = Article::search($request->search)->whereNot('title', '[Removed]');
