@@ -28,4 +28,3 @@ class ArticleFactory extends Factory
     }
 }
 
-
