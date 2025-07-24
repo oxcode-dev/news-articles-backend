@@ -27,3 +27,7 @@ class ArticleFactory extends Factory
         ];
     }
 }
+
+
+
+
