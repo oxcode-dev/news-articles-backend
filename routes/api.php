@@ -22,4 +22,3 @@ Route::middleware(['auth:sanctum'])->group(function () {
         Route::get('/{id}', [ArticleController::class, 'show'])->name('api.article_show');
     });
 });
-
