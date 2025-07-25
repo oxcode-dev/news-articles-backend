@@ -1,4 +1,5 @@
 <?php
+// ini_set('memory_limit', '720M');
 // ini_set('memory_limit', '298M');
 
 use App\Http\Controllers\API\APIAuthController;
